@@ -20,7 +20,7 @@ const config = {
   app_id: '91d0f91d09a4e09c90e6ec230ef048a9',
   app_secret: '68c4886705da5a188755310b7aa41c803885bea6c26f4bc250a2b487a501ad55',
   scope_login: 'openid profile email org userinfo',
-  scope: 'offline_access openid profile email org userinfo com.read_products',
+  scope: 'offline_access openid profile email org userinfo com.read_products web.write_themes web.read_themes',
   // login_callback_url: 'http://localhost:3000/install/login',
   login_callback_url: 'https://hidden-peak-00592.herokuapp.com/install/login',
   // install_callback_url: 'http://localhost:3000/install/grandservice',
