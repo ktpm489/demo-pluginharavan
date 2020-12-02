@@ -21,10 +21,10 @@ const config = {
   app_secret: '68c4886705da5a188755310b7aa41c803885bea6c26f4bc250a2b487a501ad55',
   scope_login: 'openid profile email org userinfo',
   scope: 'offline_access openid profile email org userinfo com.read_products web.write_themes web.read_themes',
-  // login_callback_url: 'http://localhost:3000/install/login',
-  login_callback_url: 'https://hidden-peak-00592.herokuapp.com/install/login',
-  // install_callback_url: 'http://localhost:3000/install/grandservice',
-  install_callback_url: 'https://hidden-peak-00592.herokuapp.com/install/grandservice',
+  login_callback_url: 'http://localhost:3000/install/login',
+  // login_callback_url: 'https://hidden-peak-00592.herokuapp.com/install/login',
+  install_callback_url: 'http://localhost:3000/install/grandservice',
+  // install_callback_url: 'https://hidden-peak-00592.herokuapp.com/install/grandservice',
   webhook: {
     hrVerifyToken: 'j8I6FsDVOqAZhWDnwgTIXn5fxaFbp1wy',  //https://randomkeygen.com/ (CodeIgniter Encryption Keys)
     subscribe: 'https://webhook.haravan.com/api/subscribe'
@@ -126,6 +126,31 @@ function getShop(access_token) {
     let options = {
       method: 'GET',
       url: 'https://apis.haravan.com/com/shop.json',
+      headers:
+        {
+          authorization: `Bearer ${access_token}`,
+          'Content-Type': 'application/json'
+        },
+      json: true
+    };
+
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      console.log(body);
+      resolve(body)
+    });
+  })
+}
+// https://raw.githubusercontent.com/ktpm489/haravan-plugin/fixMobl/contain/js/configskin.js
+// https://raw.githubusercontent.com/ktpm489/haravan-plugin/fixMobl/contain/js/renderData.js
+// https://docs.haravan.com/blogs/api-reference/1000018001-asset
+// https://github.com/ktpm489/haravan-plugin/blob/fixMobl/contain/js/skin.js
+// https://docs.haravan.com/blogs/omni/tutorial-use-scope
+function getThemeShop(access_token) {
+  return new Promise(resolve => {
+    let options = {
+      method: 'GET',
+      url: 'https://apis.haravan.com/web/themes.json',
       headers:
         {
           authorization: `Bearer ${access_token}`,
