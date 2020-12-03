@@ -176,8 +176,14 @@ function getThemeShop(access_token) {
 }
 ***/
 
-function postThemeData(access_token, id, data) {
-  let bodyData = JSON.stringify(data)
+function postThemeData(access_token, id, name ='' , link = '') {
+  let currentData = {
+    "asset": {
+      "key": `${name}`,
+      "src": `${link}`
+    }
+  }
+  let bodyData = JSON.stringify(currentData)
   return new Promise(resolve => {
     let options = {
       method: 'PUT',
