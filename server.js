@@ -167,6 +167,38 @@ function getThemeShop(access_token) {
   })
 }
 
+/*** DEMO TEMPLATE
+{
+  "asset": {
+    "key": "assets/bg-body.gif",
+    "src": "http://apple.com/new_bg.gif"
+  }
+}
+***/
+
+function postThemeData(access_token, id, data) {
+  let bodyData = JSON.stringify(data)
+  return new Promise(resolve => {
+    let options = {
+      method: 'PUT',
+      url: `https://apis.haravan.com/web/themes/${id}/assets.json`,
+      headers:
+      {
+        authorization: `Bearer ${access_token}`,
+        'Content-Type': 'application/json'
+      },
+      body: bodyData,
+      json: true
+    };
+
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+      console.log(body);
+      resolve(body)
+    });
+  })
+}
+
 app.get('/install/login', (req, res) => {
   let url = buildUrlLogin();
   res.redirect(url);
