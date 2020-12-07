@@ -270,6 +270,8 @@ app.post('/install/grandservice', async (req, res) => {
 
     //test request shop.json
     let shopData = await getShop(authorizeInfo.access_token);
+    // add theme data
+    // let shopData = await postThemeData(authorizeInfo.access_token, '' , '' ,'');
     res.send(shopData);
 
     //if have use webhook, you need subscribe webhook with org token to use
