@@ -271,7 +271,16 @@ app.post('/install/grandservice', async (req, res) => {
     //test request shop.json
     let shopData = await getShop(authorizeInfo.access_token);
     // add theme data
-    // let shopData = await postThemeData(authorizeInfo.access_token, '' , '' ,'');
+    
+    let themeResult = await getThemeShop(authorizeInfo.access_token) 
+    console.log('themeResult',themeResult)
+    let mainTheme = getMainTheme(themeResult)
+    console.log('mainTheme',mainTheme)
+    if (mainTheme) {
+      // to do post here
+      // let postItemAssets = await postThemeData(authorizeInfo.access_token, mainTheme.id , '' ,'');
+    }
+    
     res.send(shopData);
 
     //if have use webhook, you need subscribe webhook with org token to use
@@ -360,3 +369,19 @@ app.listen(process.env.PORT || 3000, function () {
 // app.listen(3000, function () {
 //   console.log('listening on 3000')
 // });
+
+/**
+ *  Format data
+ * {
+      "created_at": "2015-03-28T13:31:19-04:00",
+      "id": 828155753,
+      "name": "Comfort",
+      "role": "main",
+      "theme_store_id": null,
+      "updated_at": "2015-03-28T13:33:30-04:00",
+      "previewable": true,
+      "processing": false
+    } */
+function getMainTheme (data) {
+  return data && data.themes ? data.themes.find(x => x.role==='main') : undefined
+}
