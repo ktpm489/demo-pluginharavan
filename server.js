@@ -385,3 +385,7 @@ app.listen(process.env.PORT || 3000, function () {
 function getMainTheme (data) {
   return data && data.themes ? data.themes.find(x => x.role==='main') : undefined
 }
+
+
+// getThemeShop('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C')
+postThemeData('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C', '1000667309', 'abc' , 'https://raw.githubusercontent.com/ktpm489/demo-pluginharavan/main/haravan-validate.js')
