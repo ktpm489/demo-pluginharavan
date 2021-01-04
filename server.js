@@ -21,9 +21,10 @@ const config = {
   app_secret: '68c4886705da5a188755310b7aa41c803885bea6c26f4bc250a2b487a501ad55',
   scope_login: 'openid profile email org userinfo',
   scope: 'offline_access openid profile email org userinfo com.read_products web.write_themes web.read_themes',
-  login_callback_url: 'http://localhost:3000/install/login',
-  // login_callback_url: 'https://hidden-peak-00592.herokuapp.com/install/login',
-  install_callback_url: 'http://localhost:3000/install/grandservice',
+  // login_callback_url: 'http://localhost:3000/install/login',
+  login_callback_url: 'https://obscure-falls-14538.herokuapp.com/install/login',
+  // install_callback_url: 'http://localhost:3000/install/grandservice',
+  install_callback_url: 'https://obscure-falls-14538.herokuapp.com/install/grandservice',
   // install_callback_url: 'https://hidden-peak-00592.herokuapp.com/install/grandservice',
   webhook: {
     hrVerifyToken: 'j8I6FsDVOqAZhWDnwgTIXn5fxaFbp1wy',  //https://randomkeygen.com/ (CodeIgniter Encryption Keys)
