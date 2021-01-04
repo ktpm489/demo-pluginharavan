@@ -29,7 +29,7 @@ const config = {
     hrVerifyToken: 'j8I6FsDVOqAZhWDnwgTIXn5fxaFbp1wy',  //https://randomkeygen.com/ (CodeIgniter Encryption Keys)
     subscribe: 'https://webhook.haravan.com/api/subscribe'
   },
-};
+// };
 
 
 // parse application/x-www-form-urlencoded
@@ -180,10 +180,11 @@ function postThemeData(access_token, id, name ='' , link = '') {
   let currentData = {
     "asset": {
       "key": `${name}`,
-      "src": `${link}`
+      "value": `${link}`
     }
   }
-  let bodyData = JSON.stringify(currentData)
+  // let bodyData = JSON.stringify(currentData)
+  let bodyData = currentData
   return new Promise(resolve => {
     let options = {
       method: 'PUT',
@@ -196,6 +197,7 @@ function postThemeData(access_token, id, name ='' , link = '') {
       body: bodyData,
       json: true
     };
+    console.log('option', options)
 
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
@@ -278,7 +280,8 @@ app.post('/install/grandservice', async (req, res) => {
     console.log('mainTheme',mainTheme)
     if (mainTheme) {
       // to do post here
-      // let postItemAssets = await postThemeData(authorizeInfo.access_token, mainTheme.id , '' ,'');
+      // let postItemAssets = await postThemeData(authorizeInfo.access_token, mainTheme.id, 'snippets/beautys.liquid' ,'');
+      await postThemeData(authorizeInfo.access_token, mainTheme.id, 'snippets/beauty.liquid', '<script async src="https://raw.githack.com/ktpm489/haravan-plugin/demo/index.html"></script>')
     }
     
     res.send(shopData);
@@ -388,4 +391,5 @@ function getMainTheme (data) {
 
 
 // getThemeShop('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C')
-postThemeData('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C', '1000667309', 'abc' , 'https://raw.githubusercontent.com/ktpm489/demo-pluginharavan/main/haravan-validate.js')
+// postThemeData('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C', '1000667309', 'snippets/beautys1.liquid', '<script async src="https://raw.githubusercontent.com/ktpm489/demo-pluginharavan/main/haravan-validate.js"></script>')
+// postThemeData('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C', '1000667309', 'snippets/beauty.liquid', '<script async src="https://raw.githack.com/ktpm489/haravan-plugin/demo/index.html"></script>')
