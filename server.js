@@ -30,7 +30,7 @@ const config = {
     hrVerifyToken: 'j8I6FsDVOqAZhWDnwgTIXn5fxaFbp1wy',  //https://randomkeygen.com/ (CodeIgniter Encryption Keys)
     subscribe: 'https://webhook.haravan.com/api/subscribe'
   },
-// };
+};
 
 
 // parse application/x-www-form-urlencoded
