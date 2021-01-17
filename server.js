@@ -22,9 +22,11 @@ const config = {
   scope_login: 'openid profile email org userinfo',
   scope: 'offline_access openid profile email org userinfo com.read_products web.write_themes web.read_themes',
   // login_callback_url: 'http://localhost:3000/install/login',
-  login_callback_url: 'https://obscure-falls-14538.herokuapp.com/install/login',
+  // login_callback_url: 'https://obscure-falls-14538.herokuapp.com/install/login',
+  login_callback_url: 'https://protected-springs-69237.herokuapp.com/install/login',
   // install_callback_url: 'http://localhost:3000/install/grandservice',
-  install_callback_url: 'https://obscure-falls-14538.herokuapp.com/install/grandservice',
+  // install_callback_url: 'https://obscure-falls-14538.herokuapp.com/install/grandservice',
+  install_callback_url: 'https://protected-springs-69237.herokuapp.com/install/grandservice',
   // install_callback_url: 'https://hidden-peak-00592.herokuapp.com/install/grandservice',
   webhook: {
     hrVerifyToken: 'j8I6FsDVOqAZhWDnwgTIXn5fxaFbp1wy',  //https://randomkeygen.com/ (CodeIgniter Encryption Keys)
