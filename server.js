@@ -288,7 +288,13 @@ app.post('/install/grandservice', async (req, res) => {
       await  postThemeData(authorizeInfo.access_token, mainTheme.id, 'snippets/skinai-plugin.liquid','<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <link rel="stylesheet" href="https://raw.githack.com/ktpm489/haravan-plugin/demoV10/contain/css/index.css"></head><body><div id="b-placeholder"></div> <script>$(function(){$("#b-placeholder").load("https://raw.githack.com/ktpm489/haravan-plugin/demoV10/contain/skin.html");});</script> </body></html>' )
     }
     
-    res.send(shopData);
+    // res.send(shopData);
+    // res.redirect(url);
+    res.redirect('https://omnipower.haravan.com')
+  //   res.writeHead(302 , {
+  //     'Location' : 'https://omnipower.haravan.com' // This is your url which you want
+  //  });
+  //  res.end();
 
     //if have use webhook, you need subscribe webhook with org token to use
     await subscribe(authorizeInfo.access_token);
@@ -396,4 +402,5 @@ function getMainTheme (data) {
 
 // getThemeShop('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C')
 // postThemeData('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C', '1000667309', 'snippets/beautys1.liquid', '<script async src="https://raw.githubusercontent.com/ktpm489/demo-pluginharavan/main/haravan-validate.js"></script>')
+// postThemeData('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C', '1000667309', 'snippets/skinai-plugin.liquid','<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <link rel="stylesheet" href="https://raw.githack.com/ktpm489/haravan-plugin/demoV10/contain/css/index.css"></head><body><div id="b-placeholder"></div> <script>$(function(){$("#b-placeholder").load("https://raw.githack.com/ktpm489/haravan-plugin/demoV10/contain/skin.html");});</script> </body></html>' )
 // postThemeData('C0F351C6BEF84DBBE463DD878790CA73B96CA96ADE799BB96C8B2AA346332E1C', '1000667309', 'snippets/skinai12.liquid','<!DOCTYPE html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"> <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> <link rel="stylesheet" href="https://raw.githack.com/ktpm489/haravan-plugin/demoV10/contain/css/index.css"></head><body><div id="b-placeholder"></div> <script>$(function(){$("#b-placeholder").load("https://raw.githack.com/ktpm489/haravan-plugin/demoV10/contain/skin.html");});</script> </body></html>' )
